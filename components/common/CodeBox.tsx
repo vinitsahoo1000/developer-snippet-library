@@ -1,6 +1,6 @@
 
 
-export const CodeBox = ({ onChange,value, name }: { onChange: React.ChangeEventHandler<HTMLTextAreaElement>, value?: string, name: string }) =>{
+export const CodeBox = ({ onChange,value }: { onChange: React.ChangeEventHandler<HTMLTextAreaElement>, value?: string, name: string }) =>{
     
 
     return(

@@ -5,7 +5,6 @@
     import { z } from "zod";
     import { getUserFromToken } from "@/lib/auth";
     import { Language } from "@prisma/client";
-    import { User } from "./user";
 
 
     const SnippetSchema = z.object({
