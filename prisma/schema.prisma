@@ -1,0 +1,44 @@
+// schema.prisma
+
+datasource db {
+  provider = "mongodb"
+  url      = env("DATABASE_URL") // Make sure to add DATABASE_URL in your .env file
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+enum Language {
+  JavaScript
+  TypeScript
+  Python
+  Java
+  CSharp
+  Ruby
+  HTML
+  CSS
+  Go
+  PHP
+}
+
+model User {
+  id        String    @id @default(auto()) @map("_id") @db.ObjectId
+  name      String
+  email     String    @unique
+  password  String    // Add password hash for authentication
+  snippets  Snippet[] // Relation to Snippets
+  createdAt DateTime  @default(now())
+  updatedAt DateTime  @updatedAt
+}
+
+model Snippet {
+  id        String    @id @default(auto()) @map("_id") @db.ObjectId
+  title     String
+  code      String
+  language  Language
+  userId    String    @db.ObjectId // Ensure it's treated as an ObjectId
+  user      User      @relation(fields: [userId], references: [id])
+  createdAt DateTime  @default(now())
+  updatedAt DateTime  @updatedAt
+}
