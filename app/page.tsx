@@ -17,7 +17,7 @@ export default function Home() {
   return (
     <>
     <Head>
-        <title>TaskNote</title>
+        <title>Snippet Library</title>
     </Head>
     <div className="flex flex-col md:grid md:grid-cols-5 min-h-screen">
     <div className="hidden md:block md:col-span-1 p-4">
