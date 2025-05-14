@@ -1,4 +1,4 @@
-import { FiTrash, FiEdit } from "react-icons/fi";
+import { FiTrash, FiEdit, FiEye } from "react-icons/fi";
 import { format } from "date-fns";
 import { deleteSnippet } from "@/app/actions/snippet";  // Assuming this is the function for snippet actions
 import { toast } from "react-toastify";
@@ -12,7 +12,8 @@ interface SnippetCardProps {
     createdAt: Date;
     updatedAt: Date;
     onDeleteSuccess?: (snippetId: string) => void;
-    onClick?: () => void;  // For editing or viewing details
+    onClick?: () => void;  // For editing details
+    onView? : () => void;  // For viewing details
 }
 
 export const SnippetCard = ({
@@ -24,6 +25,7 @@ export const SnippetCard = ({
     updatedAt,
     onDeleteSuccess,
     onClick,
+    onView
 }: SnippetCardProps) => {
     const [isDeleting, setIsDeleting] = useState(false);
     const formattedCreatedAt = format(new Date(createdAt), "dd MMM, yyyy");
@@ -80,7 +82,12 @@ export const SnippetCard = ({
                     <FiTrash className="w-4 h-4" />
                     {isDeleting ? 'Deleting...' : 'Delete'}
                 </button>
-
+                <button
+                    onClick={onView}
+                    className="flex items-center gap-1 text-xs bg-slate-500 text-white px-3 py-1 rounded-md shadow hover:bg-slate-600 transition-all duration-300"
+                >
+                    <FiEye className="w-4 h-4"/> View
+                </button>
                 <button
                     onClick={onClick}
                     className="flex items-center gap-1 text-xs bg-slate-500 text-white px-3 py-1 rounded-md shadow hover:bg-slate-600 transition-all duration-300"

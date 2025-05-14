@@ -2,19 +2,20 @@ import { useEffect, useState, useCallback } from "react";
 import { SnippetCard } from "./SnippetCard";
 import { CreateSnippet } from "./CreateSnippet";
 import { SnippetEditor } from "./SnippetEditor";
-import {  Snippet, getSnippets } from "@/app/actions/snippet"; // API call to fetch snippets
+import {  Snippet, getSnippets } from "@/app/actions/snippet"; 
+import { SnippetView } from "./SnippetView";
 
 export const SnippetGrid = () => {
-    const [snippets, setSnippets] = useState<Snippet[]>([]); // State for snippets
-    const [isLoading, setIsLoading] = useState<boolean>(true); // State for loading
-    const [isCreateSnippetOpen, setCreateSnippetOpen] = useState<boolean>(false); // State to toggle snippet creation dialog
-    const [selectedSnippet, setSelectedSnippet] = useState<Snippet | null>(null); // State for the selected snippet
-
-    // Fetch snippets from the backend
+    const [snippets, setSnippets] = useState<Snippet[]>([]); 
+    const [isLoading, setIsLoading] = useState<boolean>(true); 
+    const [isCreateSnippetOpen, setCreateSnippetOpen] = useState<boolean>(false); 
+    const [selectedSnippet, setSelectedSnippet] = useState<Snippet | null>(null); 
+    const [snippetView,setSnippetView] = useState<Snippet | null>(null); 
+    
     const fetchSnippets = useCallback(async () => {
         try {
             setIsLoading(true);
-            const { snippets } = await getSnippets(); // Assuming it returns { snippets }
+            const { snippets } = await getSnippets(); 
             setSnippets(snippets);
         } catch (error) {
             console.error("Failed to fetch snippets:", error);
@@ -25,24 +26,24 @@ export const SnippetGrid = () => {
     
 
     useEffect(() => {
-        fetchSnippets(); // Fetch snippets when the component mounts
+        fetchSnippets(); 
     }, [fetchSnippets]);
 
     const toggleCreateSnippetDialog = () => {
-        setCreateSnippetOpen((prev) => !prev); // Toggle the create snippet dialog
+        setCreateSnippetOpen((prev) => !prev); 
     };
 
-    // Add a new snippet to the state
+    
     const addSnippet = (newSnippet: Snippet) => {
         setSnippets((prevSnippets) => [newSnippet, ...prevSnippets]);
     };
 
-    // Remove a snippet from the state by its ID
+    
     const removeSnippet = (snippetId: string) => {
         setSnippets((prevSnippets) => prevSnippets.filter((snippet) => snippet.id !== snippetId));
     };
 
-    // Update an existing snippet in the state
+    
     const updateSnippetInUI = (updatedSnippet: Snippet) => {
         setSnippets((prevSnippets) =>
             prevSnippets.map((snippet) =>
@@ -65,10 +66,11 @@ export const SnippetGrid = () => {
                 ) : (
                     snippets.map((snippet) => (
                         <SnippetCard
-                            key={snippet.id}
-                            {...snippet} // Spread snippet props to SnippetCard
-                            onDeleteSuccess={removeSnippet} // Handle delete success
-                            onClick={() => setSelectedSnippet(snippet)} // Set the selected snippet
+                            key={snippet.id} 
+                            {...snippet} 
+                            onDeleteSuccess={removeSnippet} 
+                            onClick={() => setSelectedSnippet(snippet)} 
+                            onView={()=> setSnippetView(snippet)}
                         />
                     ))
                 )}
@@ -77,11 +79,15 @@ export const SnippetGrid = () => {
             {selectedSnippet && (
                 <SnippetEditor
                     snippet={selectedSnippet}
-                    closeWindow={() => setSelectedSnippet(null)} // Close editor window
-                    updateSnippetInUI={updateSnippetInUI} // Update the snippet in UI after editing
+                    closeWindow={() => setSelectedSnippet(null)} 
+                    updateSnippetInUI={updateSnippetInUI} 
                 />
             )}
-
+            {snippetView && (
+                <SnippetView snippet={snippetView} 
+                closeWindow={() => setSnippetView(null)}
+                />
+            )}
             <button
                 onClick={toggleCreateSnippetDialog}
                 className="fixed bottom-6 right-6 p-3 bg-blue-600 text-white rounded-full shadow-lg hover:bg-blue-700 transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
@@ -105,8 +111,8 @@ export const SnippetGrid = () => {
 
             {isCreateSnippetOpen && (
                 <CreateSnippet
-                    addSnippet={addSnippet} // Pass function to add a new snippet
-                    closeWindow={toggleCreateSnippetDialog} // Close the dialog
+                    addSnippet={addSnippet} 
+                    closeWindow={toggleCreateSnippetDialog} 
                 />
             )}
         </div>
