@@ -15,8 +15,8 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "TaskNote",
-  description: "Task Note App",
+  title: "Snippet Library",
+  description: "Snippet Library App",
   icons: {
     icon: "/favicon.ico",
   }
