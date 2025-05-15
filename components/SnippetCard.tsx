@@ -1,8 +1,9 @@
 import { FiTrash, FiEdit, FiEye } from "react-icons/fi";
 import { format } from "date-fns";
-import { deleteSnippet } from "@/app/actions/snippet";  // Assuming this is the function for snippet actions
+import { deleteSnippet } from "@/app/actions/snippet";  
 import { toast } from "react-toastify";
 import { useState } from "react";
+import { SyntaxHighlight } from "./SyntaxHighlight";
 
 interface SnippetCardProps {
     id: string;
@@ -51,9 +52,10 @@ export const SnippetCard = ({
         }
     };
 
+
     return (
-        <div className="relative bg-white shadow-lg rounded-xl p-6 w-full max-w-xs hover:shadow-2xl transition-all duration-300">
-            <div className="text-lg font-semibold text-gray-800 text-center mb-2">
+        <div className="relative bg-white shadow-lg rounded-xl p-6 w-[540px] h-[480px] hover:shadow-2xl transition-all duration-300">
+            <div className="text-2xl font-bold text-gray-800 text-center mb-2">
                 {title}
             </div>
             <div className="text-gray-600 text-sm text-center mb-4">
@@ -61,7 +63,9 @@ export const SnippetCard = ({
                 {language}
             </div>
             <div className="mb-4">
-                <pre className="bg-gray-100 p-4 rounded-md overflow-x-auto">{code}</pre>
+                <pre className="bg-grey-900 p-4 rounded-md h-[250px] overflow-auto whitespace-pre-wrap text-sm">
+                    <SyntaxHighlight language={language} code={code}/>
+                </pre>
             </div>
             <div className="flex justify-between items-center text-gray-500 text-xs border-t border-gray-200 pt-2">
                 <div className="flex items-center">

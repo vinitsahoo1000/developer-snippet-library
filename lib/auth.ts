@@ -1,8 +1,7 @@
-// lib/auth.ts
 import { cookies } from "next/headers";
 import jwt from "jsonwebtoken";
 
-const JWT_SECRET = process.env.JWT_SECRET!; // Set this in your .env file
+const JWT_SECRET = process.env.JWT_SECRET!; 
 
 export async function getUserFromToken() {
     const cookieStore = await cookies();

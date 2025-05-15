@@ -103,8 +103,10 @@ export const SnippetEditor = ({ snippet, closeWindow, updateSnippetInUI }: Snipp
             </div>
                 <CodeBox
                     value={formData.code}
-                    name="code"
-                    onChange={handleInputChange}
+                    language={formData.language}
+                    onChange={(value)=>{
+                        setFormData((prev)=> ({...prev, code: value}))
+                    }}
                 />
                 <div className="flex justify-center">
                     <button

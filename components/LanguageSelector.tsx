@@ -1,5 +1,5 @@
-import { Language } from "@prisma/client"; // Import your enum
-import { cn } from "@/lib/utils"; // If you're using a className util like clsx or cn
+import { Language } from "@prisma/client"; 
+import { cn } from "@/lib/utils"; 
 
 interface LanguageSelectorProps {
     value: Language;

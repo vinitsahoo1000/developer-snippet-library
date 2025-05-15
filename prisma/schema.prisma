@@ -2,7 +2,7 @@
 
 datasource db {
   provider = "mongodb"
-  url      = env("DATABASE_URL") // Make sure to add DATABASE_URL in your .env file
+  url      = env("DATABASE_URL") 
 }
 
 generator client {
@@ -26,8 +26,8 @@ model User {
   id        String    @id @default(auto()) @map("_id") @db.ObjectId
   name      String
   email     String    @unique
-  password  String    // Add password hash for authentication
-  snippets  Snippet[] // Relation to Snippets
+  password  String    
+  snippets  Snippet[] 
   createdAt DateTime  @default(now())
   updatedAt DateTime  @updatedAt
 }
@@ -37,7 +37,7 @@ model Snippet {
   title     String
   code      String
   language  Language
-  userId    String    @db.ObjectId // Ensure it's treated as an ObjectId
+  userId    String    @db.ObjectId 
   user      User      @relation(fields: [userId], references: [id])
   createdAt DateTime  @default(now())
   updatedAt DateTime  @updatedAt

@@ -4,7 +4,7 @@ import { useState } from "react";
 import { toast } from "react-toastify";
 import { CodeBox } from "./common/CodeBox";
 import { InputBox } from "./common/InputBox";
-import { createSnippet, Snippet } from "@/app/actions/snippet"; // adjust path as needed
+import { createSnippet, Snippet } from "@/app/actions/snippet"; 
 
 
 
@@ -97,15 +97,13 @@ export const CreateSnippet = ({ closeWindow, addSnippet }: CreateSnippetProps) =
                 ))}
             </select>
             </div>
-
             <CodeBox
-            name="code"
-            value={formData.code}
-            onChange={(e: React.ChangeEvent<HTMLTextAreaElement>) =>
-                setFormData({ ...formData, code: e.target.value })
-            }
+                value={formData.code}
+                language={formData.language}
+                onChange={(value)=>{
+                    setFormData((prev)=> ({...prev, code: value}))
+                }}
             />
-
             <div className="flex justify-center">
             <button
                 onClick={handleCreateSnippet}

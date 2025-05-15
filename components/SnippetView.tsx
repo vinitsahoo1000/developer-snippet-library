@@ -2,8 +2,7 @@
 import { Snippet } from "@/app/actions/snippet";
 import { Button } from "./common/Button";
 import { toast } from "react-toastify";
-
-
+import { SyntaxHighlight } from "./SyntaxHighlight";
 
 interface SnippetView {
     snippet: Snippet;
@@ -11,6 +10,7 @@ interface SnippetView {
 }
 
 export const SnippetView = ({ snippet, closeWindow }:SnippetView)=>{
+
 
     const copyCode = async () => {
     if (!navigator.clipboard) {
@@ -41,8 +41,8 @@ export const SnippetView = ({ snippet, closeWindow }:SnippetView)=>{
             <h2 className="text-2xl font-semibold text-gray-800 border-b pb-2">
             {snippet.title}
             </h2>
-            <pre className="bg-gray-100 text-sm rounded-md p-4 overflow-x-auto border border-gray-200">
-            <code>{snippet.code}</code>
+            <pre className="bg-gray-900 text-sm h-96 rounded-md p-4 overflow-x-auto border border-gray-200">
+            <SyntaxHighlight language={snippet.language} code={snippet.code}/>
             </pre>
             <div className="text-sm text-gray-500 italic">
             Language: {snippet.language}
