@@ -1,28 +1,27 @@
-# Task Note
+# Developer-Snippet-Library
 
-Task Note is a simple task management application built with **Next.js** using **Server Actions**. It allows users to **sign up, log in, add tasks, mark tasks as completed, view pending tasks, and delete tasks**.
+Developer-Snippet-Library is a code snippet management and saving app where users can securely save, organize, and access their code snippets in any programming language, with features like tagging, syntax highlighting, and search for improved productivity.
 
 ## Features
 - **User Authentication**: Signup & Login functionality
-- **Task Management**:
-  - Add tasks
-  - Mark tasks as completed
-  - View pending tasks
-  - Delete tasks
+- **Snippet Management**:
+  - Add snippet
+  - edit snippet
+  - Delete snippet
 - **Next.js Server Actions** for backend processing
 
 ## Tech Stack
 - **Frontend**: Next.js 14 with React & Tailwind CSS
 - **Backend**: Server Actions in Next.js
-- **Database**: (Specify if using a database, e.g., MongoDB, PostgreSQL, etc.)
+- **Database**: (MongoDB)
 - **Authentication**: JSON Web Tokens (JWT)
 
 ## Installation & Setup
 
 1. **Clone the repository**
    ```sh
-   git clone https://github.com/vinitsahoo1000/taskManagementApp
-   cd taskManagementApp
+   git clone https://github.com/vinitsahoo1000/developer-snippet-library
+   cd developer-snippet-library
    ```
 2. **Install dependencies**
    ```sh
@@ -42,7 +41,7 @@ Task Note is a simple task management application built with **Next.js** using *
 
 ## Usage
 - **User Authentication**: Navigate to `/signup` or `/login`.
-- **Task Management**: All task-related actions are performed on the `/` route.
+- **Snippet Management**: All snippet-related actions are performed on the `/` route.
 - **Logout**: Clicking the logout button will clear authentication and redirect the user.
 
 ## Folder Structure
@@ -55,24 +54,37 @@ Task Note is a simple task management application built with **Next.js** using *
  │   │   ├── page.tsx # Signup page
  │
  ├── actions          # Server Actions for handling user and task logic
- │   ├── task.ts
+ │   ├── snippet.ts
  │   ├── user.ts
  │
- ├── page.tsx         # Main page where tasks are managed
+ ├── page.tsx         # Main page where snippet are managed
  │    
- ├── components/common  # Reusable UI components
+ ├── components  # Reusable UI components
+ │   ├── common
+ │   │     ├── Button.tsx
+ │   │     ├── CodeBox.tsx
+ │   │     ├── InputBox.tsx
+ │   │     ├── PasswordBox.tsx
  │   ├── AuthLogin.tsx
  │   ├── AuthSignup.tsx
- │   ├── CreateTask.tsx
+ │   ├── CreateSnippet.tsx
  │   ├── SideMenu.tsx
- │   ├── TaskCard.tsx
- │   ├── TaskEditor.tsx
- │   ├── TaskGrid.tsx
+ │   ├── SnippetCard.tsx
+ │   ├── SnippetEditor.tsx
+ │   ├── SnippetGrid.tsx
+ │   ├── SnippetView.tsx
+ │   ├── LanguageSelector.tsx
  │
  ├── db               # Database connection setup
  │   ├── index.ts
- │   ├── prisma/schema.prisma  # Prisma schema for MongoDB
  │
+ ├── prisma
+ │    ├── schema.prisma
+ │
+ ├── lib
+ │    ├── auth.ts    
+ │    ├── utils.ts   
+ │    
  ├── middleware.ts     # Middleware for authentication
  ├── next.config.js    # Next.js configuration
  ├── .env              # Environment variables
@@ -86,12 +98,11 @@ You can deploy this app on **Vercel** easily:
 3. Set environment variables in the Vercel dashboard.
 4. Deploy!
 
-## Contributing
-If you find a bug or have a feature request, feel free to open an issue or contribute by making a pull request.
+
 
 ## License
 This project is licensed under the **MIT License**.
 
 ---
-### Happy Task Managing! ✅
+### Happy Snippet Managing! ✅
 
