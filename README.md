@@ -55,24 +55,37 @@ Task Note is a simple task management application built with **Next.js** using *
  │   │   ├── page.tsx # Signup page
  │
  ├── actions          # Server Actions for handling user and task logic
- │   ├── task.ts
+ │   ├── snippet.ts
  │   ├── user.ts
  │
- ├── page.tsx         # Main page where tasks are managed
+ ├── page.tsx         # Main page where snippet are managed
  │    
- ├── components/common  # Reusable UI components
+ ├── components  # Reusable UI components
+ │   ├── common
+ │   │     ├── Button.tsx
+ │   │     ├── CodeBox.tsx
+ │   │     ├── InputBox.tsx
+ │   │     ├── PasswordBox.tsx
  │   ├── AuthLogin.tsx
  │   ├── AuthSignup.tsx
- │   ├── CreateTask.tsx
+ │   ├── CreateSnippet.tsx
  │   ├── SideMenu.tsx
- │   ├── TaskCard.tsx
- │   ├── TaskEditor.tsx
- │   ├── TaskGrid.tsx
+ │   ├── SnippetCard.tsx
+ │   ├── SnippetEditor.tsx
+ │   ├── SnippetGrid.tsx
+ │   ├── SnippetView.tsx
+ │   ├── LanguageSelector.tsx
  │
  ├── db               # Database connection setup
  │   ├── index.ts
- │   ├── prisma/schema.prisma  # Prisma schema for MongoDB
  │
+ ├── prisma
+ │    ├── schema.prisma
+ │
+ ├── lib
+ │    ├── auth.ts    
+ │    ├── utils.ts   
+ │    
  ├── middleware.ts     # Middleware for authentication
  ├── next.config.js    # Next.js configuration
  ├── .env              # Environment variables
@@ -86,12 +99,11 @@ You can deploy this app on **Vercel** easily:
 3. Set environment variables in the Vercel dashboard.
 4. Deploy!
 
-## Contributing
-If you find a bug or have a feature request, feel free to open an issue or contribute by making a pull request.
+
 
 ## License
 This project is licensed under the **MIT License**.
 
 ---
-### Happy Task Managing! ✅
+### Happy Snippet Managing! ✅
 
