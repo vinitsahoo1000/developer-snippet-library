@@ -4,25 +4,24 @@ Developer-Snippet-Library is a code snippet management and saving app where user
 
 ## Features
 - **User Authentication**: Signup & Login functionality
-- **Task Management**:
-  - Add tasks
-  - Mark tasks as completed
-  - View pending tasks
-  - Delete tasks
+- **Snippet Management**:
+  - Add snippet
+  - edit snippet
+  - Delete snippet
 - **Next.js Server Actions** for backend processing
 
 ## Tech Stack
 - **Frontend**: Next.js 14 with React & Tailwind CSS
 - **Backend**: Server Actions in Next.js
-- **Database**: (Specify if using a database, e.g., MongoDB, PostgreSQL, etc.)
+- **Database**: (MongoDB)
 - **Authentication**: JSON Web Tokens (JWT)
 
 ## Installation & Setup
 
 1. **Clone the repository**
    ```sh
-   git clone https://github.com/vinitsahoo1000/taskManagementApp
-   cd taskManagementApp
+   git clone https://github.com/vinitsahoo1000/developer-snippet-library
+   cd developer-snippet-library
    ```
 2. **Install dependencies**
    ```sh
@@ -42,7 +41,7 @@ Developer-Snippet-Library is a code snippet management and saving app where user
 
 ## Usage
 - **User Authentication**: Navigate to `/signup` or `/login`.
-- **Task Management**: All task-related actions are performed on the `/` route.
+- **Snippet Management**: All snippet-related actions are performed on the `/` route.
 - **Logout**: Clicking the logout button will clear authentication and redirect the user.
 
 ## Folder Structure
