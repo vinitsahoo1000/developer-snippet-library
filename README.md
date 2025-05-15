@@ -1,6 +1,6 @@
-# Task Note
+# Developer-Snippet-Library
 
-Task Note is a simple task management application built with **Next.js** using **Server Actions**. It allows users to **sign up, log in, add tasks, mark tasks as completed, view pending tasks, and delete tasks**.
+Developer-Snippet-Library is a code snippet management and saving app where users can securely save, organize, and access their code snippets in any programming language, with features like tagging, syntax highlighting, and search for improved productivity.
 
 ## Features
 - **User Authentication**: Signup & Login functionality
