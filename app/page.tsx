@@ -28,7 +28,7 @@ export default function Home() {
       <button onClick={toggleMenu} className="text-gray-600 text-2xl focus:outline-none">
         <FiMenu />
       </button>
-      <h1 className="text-lg font-semibold">Tasks</h1>
+      <h1 className="text-lg font-semibold">Snippets</h1>
     </div>
 
     {isMenuOpen && (

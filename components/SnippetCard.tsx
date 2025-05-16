@@ -54,7 +54,7 @@ export const SnippetCard = ({
 
 
     return (
-        <div className="relative bg-white shadow-lg rounded-xl p-6 w-[540px] h-[480px] hover:shadow-2xl transition-all duration-300">
+        <div className="relative bg-white shadow-lg rounded-xl p-6 w-[350px] h-[480px] hover:shadow-2xl transition-all duration-300 lg:w-[520px] lg:h-[480px]">
             <div className="text-2xl font-bold text-gray-800 text-center mb-2">
                 {title}
             </div>
