@@ -53,7 +53,7 @@ export const SnippetGrid = () => {
     };
 
     return (
-        <div className="relative min-h-screen p-6">
+        <div className="relative min-h-screen p-2">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 {isLoading ? (
                     <div className="col-span-full text-center text-blue-500">
